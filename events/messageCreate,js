@@ -1,0 +1,15 @@
+const { Events } = require('discord.js');
+
+console.log('called messageCreate.js');
+
+module.exports =  {
+	name: Events.MessageCreate,
+	async execute(message){
+		if (message.mentions.has(client.user.id) && !message.author.bot) {
+			console.log("new ping in\n channel: #" + message.channel.name + '\n guild: ' + message.guild.name + '\n from user: ' + message.author.username + '#' + message.author.discriminator + '\n message: ' + message.content)
+			await message.channel.send({
+				content: "Received",
+			});
+		}
+	}
+};
