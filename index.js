@@ -23,8 +23,8 @@ const client = new Client({
 	presence: {
 		activities: [
 			{
-				name: 'with Discord.js',
-				type: 1,
+				name: 'the server come to life!',
+				type: 3,
 			},
 		],
 		status: PresenceUpdateStatus.Online,
