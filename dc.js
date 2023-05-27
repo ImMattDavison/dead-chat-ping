@@ -1,3 +1,5 @@
+// THIS FILE IS FOR DEPLOYING COMMANDS TO DISCORD
+
 // Gather necessary imports from DJS
 const { REST, Routes } = require('discord.js');
 // Require dotenv to load the .env file

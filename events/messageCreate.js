@@ -1,3 +1,5 @@
+// THIS EVENT IS EXECUTED WHEN A MESSAGE IS SENT IN DISCORD
+
 const { Events } = require('discord.js');
 
 // Require dotenv to load the .env file

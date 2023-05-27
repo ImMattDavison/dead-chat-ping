@@ -1,3 +1,5 @@
+// THIS FILE IS FOR RUNNING THE BOT
+
 // Require the fs module
 const fs = require('node:fs');
 // Require the path module

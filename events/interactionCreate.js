@@ -1,3 +1,5 @@
+// THIS EVENT IS EXECUTED WHEN A USER INTERACTS WITH A SLASH COMMAND
+
 // Get Events from DJS
 const { Events } = require('discord.js');
 
