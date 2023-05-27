@@ -1,3 +1,4 @@
+// Get Events from DJS
 const { Events } = require('discord.js');
 
 console.log('called interactionCreate.js');
@@ -7,16 +8,22 @@ module.exports = {
 	async execute(interaction) {
 		if (!interaction.isChatInputCommand()) return;
 
+		// Get the command from the client.commands Collection
 		const command = interaction.client.commands.get(interaction.commandName);
 
+		// If no command is found, log the error and return nothing
 		if (!command) {
 			console.error(`No command matching ${interaction.commandName} was found.`);
 			return;
 		}
 
+		// Try to execute the command
 		try {
+			// Execute the command
 			await command.execute(interaction);
-		} catch (error) {
+		} 
+		// Catch and log any errors when executing the command
+		catch (error) {
 			console.error(`Error executing ${interaction.commandName}`);
 			console.error(error);
 		}
