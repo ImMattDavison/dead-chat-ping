@@ -31,17 +31,19 @@ module.exports =  {
 				content: `${message.author} pinged <@&${process.env.DCP_ROLE}>!\n\nDead Chat Ping is now disabled until <t:${newCooldown}:t>`,
 			});
 			cooldown.set(message.guild.id, newCooldown);
+			return;
 
 		} 
 		// Check if message is a ping and if cooldown is not clean and if message is not a reply and then send cooldown notification
 		else if(!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && !cooldownIsClean && message.type !== 19) {
 
 			message.reply('Dead Chat Ping was sent recently, you can next ping this role <t:' + cooldown.get(message.guild.id) + ':R>');
+			return;
 
 		} 
 		// If message is irrelevant then return and do nothing
 		else {
-			
+
 			console.log('irrelevant message')
 			return;
 
