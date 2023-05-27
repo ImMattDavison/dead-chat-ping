@@ -41,7 +41,8 @@ module.exports =  {
 		} 
 		// If message is irrelevant then return and do nothing
 		else {
-
+			
+			console.log('irrelevant message')
 			return;
 
 		}
