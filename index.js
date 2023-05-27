@@ -39,10 +39,10 @@ for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
 	const event = require(filePath);
 	if (event.once) {
-		console.log(event.name)
+		// console.log('\u001b[1;35m' + event.name + '\u001b[0m')
 		client.once(event.name, (...args) => event.execute(...args));
 	} else {
-		console.log(event.name)
+		// console.log('\u001b[1;35m' + event.name + '\u001b[0m')
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }

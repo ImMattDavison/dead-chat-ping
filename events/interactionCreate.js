@@ -1,8 +1,6 @@
 // Get Events from DJS
 const { Events } = require('discord.js');
 
-console.log('called interactionCreate.js');
-
 module.exports = {
 	name: Events.InteractionCreate,
 	async execute(interaction) {

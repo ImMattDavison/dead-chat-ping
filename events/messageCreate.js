@@ -6,15 +6,13 @@ const dotenv = require('dotenv');
 // Load the .env file
 dotenv.config();
 
-console.log('called messageCreate.js')
-
 const cooldown = new Map();
 const cooldownTime = 3600;
 
 module.exports =  {
 	name: Events.MessageCreate,
 	async execute(message) {
-		console.log('called messageCreate.js');
+		console.log('\u001b[1;34mcalled messageCreate.js\n');
 
 		// Store cooldown
 		!cooldown.has(message.guild.id) ? cooldown.set(message.guild.id, 0) : null;
@@ -26,7 +24,7 @@ module.exports =  {
 		if (!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && cooldownIsClean && message.type !== 19) {
 
 			const newCooldown = Math.floor(message.createdTimestamp/1000) + cooldownTime;
-			console.log("new ping in\n channel: #" + message.channel.name + '\n guild: ' + message.guild.name + '\n from user: ' + message.author.username + '#' + message.author.discriminator + '\n message: ' + message.content)
+			console.log("\u001b[1;33mNew ping!\n\u001b[1;0mchannel: #" + message.channel.name + '\nguild: ' + message.guild.name + '\nfrom user: ' + message.author.username + '#' + message.author.discriminator + '\nmessage: ' + message.content + '\n\u001b[0m')
 			message.reply({
 				content: `${message.author} pinged <@&${process.env.DCP_ROLE}>!\n\nDead Chat Ping is now disabled until <t:${newCooldown}:t>`,
 			});
@@ -44,7 +42,7 @@ module.exports =  {
 		// If message is irrelevant then return and do nothing
 		else {
 
-			console.log('irrelevant message')
+			console.log('\u001b[1;31mirrelevant message\u001b[0m')
 			return;
 
 		}
