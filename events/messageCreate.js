@@ -23,7 +23,7 @@ module.exports =  {
 		const cooldownIsClean = Math.floor(cooldown.get(message.guild.id)) < Math.floor(message.createdTimestamp/1000);
 
 		// Check if message is a ping and if cooldown is clean and if message is not a reply and then send ping
-		if (!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && cooldownIsClean && message.type !== 19) {
+		if (!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && cooldownIsClean && message.type == 0) {
 
 			const newCooldown = Math.floor(message.createdTimestamp/1000) + cooldownTime;
 			console.log("\u001b[1;33mNew ping!\n\u001b[1;0mchannel: #" + message.channel.name + '\nguild: ' + message.guild.name + '\nfrom user: ' + message.author.username + '#' + message.author.discriminator + '\nmessage: ' + message.content + '\n\u001b[0m')
@@ -35,7 +35,7 @@ module.exports =  {
 
 		} 
 		// Check if message is a ping and if cooldown is not clean and if message is not a reply and then send cooldown notification
-		else if(!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && !cooldownIsClean && message.type !== 19) {
+		else if(!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && !cooldownIsClean && message.type == 0) {
 
 			message.reply('Dead Chat Ping was sent recently, you can next ping this role <t:' + cooldown.get(message.guild.id) + ':R>');
 			return;
