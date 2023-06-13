@@ -8,13 +8,13 @@ const dotenv = require('dotenv');
 // Load the .env file
 dotenv.config();
 
-const cooldown = new Map();
-const cooldownTime = 3600;
+const cooldown = new Map(); // create storage for cooldowns
+const cooldownTime = 3600; // in seconds
 
 module.exports =  {
 	name: Events.MessageCreate,
 	async execute(message) {
-		console.log('\u001b[1;34mcalled messageCreate.js\n');
+		console.log('\u001b[1;34mcalled messageCreate.js\n'); // log when file is called
 
 		// Store cooldown
 		!cooldown.has(message.guild.id) ? cooldown.set(message.guild.id, 0) : null;
