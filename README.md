@@ -14,3 +14,10 @@ Setting up Dead Chat Ping is easy!
 4. Run the bot: `node .` to run on a local machine. Alternatively, you can host the bot on a server or VPS - please follow available online guides.
 5. Invite the bot to your server using the link logged upon starting the bot.
 6. Use Dead Chat Ping and improve the activity of your server!
+
+## Contributing
+
+Anyone is welcome to contribute to NoMoreDomains. Simply open an issue and wait for confirmation before starting to code and opening a pull request.
+
+<h2 align='center'> ⭐ Don't forget to leave a star! ⭐ </h2>
+
