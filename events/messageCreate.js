@@ -25,12 +25,12 @@ module.exports =  {
 		// Check if message is a ping and if cooldown is clean and if message is not a reply and then send ping
 		if (!message.author.bot && message.mentions.has(`${process.env.CLIENT_ID}`) && cooldownIsClean && message.type == 0) {
 
-			const newCooldown = Math.floor(message.createdTimestamp/1000) + cooldownTime;
-			console.log("\u001b[1;33mNew ping!\n\u001b[1;0mchannel: #" + message.channel.name + '\nguild: ' + message.guild.name + '\nfrom user: ' + message.author.username + '#' + message.author.discriminator + '\nmessage: ' + message.content + '\n\u001b[0m')
+			const newCooldown = Math.floor(message.createdTimestamp/1000) + cooldownTime; // Create colldown based on current time
+			console.log("\u001b[1;33mNew ping!\n\u001b[1;0mchannel: #" + message.channel.name + '\nguild: ' + message.guild.name + '\nfrom user: ' + message.author.username + '#' + message.author.discriminator + '\nmessage: ' + message.content + '\n\u001b[0m') // Log event details
 			message.reply({
 				content: `${message.author} pinged <@&${process.env.DCP_ROLE}>!\n\nDead Chat Ping is now disabled until <t:${newCooldown}:t>`,
-			});
-			cooldown.set(message.guild.id, newCooldown);
+			}); // Send ping and send disablement notice to chat
+			cooldown.set(message.guild.id, newCooldown); // Set new cooldown to the guild
 			return;
 
 		} 
@@ -44,7 +44,7 @@ module.exports =  {
 		// If message is irrelevant then return and do nothing
 		else {
 
-			console.log('\u001b[1;31mirrelevant message\u001b[0m')
+			console.log('\u001b[1;31mirrelevant message\u001b[0m') // Log that message is irrelevant for reference
 			return;
 
 		}
